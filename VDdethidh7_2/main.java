@@ -1,0 +1,53 @@
+package VDdethidh7_2;
+
+import java.util.Scanner;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner a = new Scanner(System.in);
+		int n = a.nextInt();
+		Mayin[] mi = new Mayin[n];
+		for (int i = 0; i < mi.length; i++) {
+			// a.nextLine();
+			System.out.println("Danh sach may in " + (i + 1) + ": ");
+			mi[i] = new Mayin();
+			mi[i].Nhap();
+		}
+		for (int i = 0; i < mi.length; i++) {
+			mi[i].Xuat();
+		}
+		for (int i = 0; i < mi.length; i++) {
+			if (mi[i].getTenNSX().equals("Canon"))
+
+				mi[i].Xuat();
+		}
+
+		Mayin t;
+		for (int i = 0; i < mi.length; i++) {
+			for (int j = i + 1; j < mi.length; j++) {
+				if (mi[i].getGiathanh() < mi[j].getGiathanh()) {
+					t = mi[i];
+					mi[i] = mi[j];
+					mi[j] = t;
+				}
+
+			}
+
+		}
+		System.out.println("Day sau khi duoc sap xep");
+		for (int i = 0; i < mi.length; i++) {
+			mi[i].Xuat();
+		}
+		Mayin min = mi[0];
+		for(int i=0;i < mi.length; i++) {
+			if (mi[i].getGiathanh()< min.getGiathanh()) {
+				min = mi[i];
+			}
+		}
+		System.out.println("Min");min.Xuat();
+		
+		}
+	}
+
