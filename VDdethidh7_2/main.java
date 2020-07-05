@@ -3,11 +3,21 @@ package VDdethidh7_2;
 import java.util.Scanner;
 
 public class main {
-
-	public static void main(String[] args) {
+	public static int mayin() throws Exception{
+		Scanner a = new Scanner(System.in);
+		int n =0;boolean mayin = false;while(!mayin) {
+			try {
+				n = a.nextInt();
+				mayin = true;
+			}catch (Exception e) {
+				System.out.println("Sai");a.nextLine();
+			}
+		}if(n<0) throw new Exception("sai"); return n;
+	}
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Scanner a = new Scanner(System.in);
-		int n = a.nextInt();
+		int n=mayin();n = a.nextInt();
 		Mayin[] mi = new Mayin[n];
 		for (int i = 0; i < mi.length; i++) {
 			// a.nextLine();
@@ -22,7 +32,7 @@ public class main {
 			if (mi[i].getTenNSX().equals("Canon"))
 
 				mi[i].Xuat();
-		}
+		}System.out.println("--------------------------------------------------");
 
 		Mayin t;
 		for (int i = 0; i < mi.length; i++) {
@@ -35,19 +45,19 @@ public class main {
 
 			}
 
-		}
+		}System.out.println("--------------------------------------------------");
 		System.out.println("Day sau khi duoc sap xep");
 		for (int i = 0; i < mi.length; i++) {
 			mi[i].Xuat();
 		}
 		Mayin min = mi[0];
-		for(int i=0;i < mi.length; i++) {
-			if (mi[i].getGiathanh()< min.getGiathanh()) {
+		for (int i = 0; i < mi.length; i++) {
+			if (mi[i].getGiathanh() < min.getGiathanh()) {
 				min = mi[i];
 			}
-		}
-		System.out.println("Min");min.Xuat();
-		
-		}
-	}
+		}System.out.println("--------------------------------------------------");
+		System.out.println("Min");
+		min.Xuat();
 
+	}
+}
